@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Jove-rescue")(type "Legacy")(uri "${KIPRJMOD}/Jove-rescue.lib")(options "")(descr ""))
+)
