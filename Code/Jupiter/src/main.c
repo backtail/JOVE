@@ -76,11 +76,23 @@ void switch_to_next()
     }
 }
 
-INTERRUPT(Int3_Routine, EXTI_VectInt3)
+static uint8_t pin_changed = 0;
+static uint8_t pin_state = 0;
+static uint8_t wait_for_next = 0;
+
+INTERRUPT(Timer0_Routine, EXTI_VectTimer0)
 {
-    // detect rising edge
-    if (P33)
+    // any edge detection
+    if (P33 != pin_state)
     {
+        pin_state = P33; // update pin state
+        pin_changed = 1; // trigger pin change
+    }
+
+    // in case a valid pin change has been registered
+    if (pin_changed)
+    {
+        pin_changed = 0;
         switch_to_next();
     }
 }
@@ -91,7 +103,7 @@ void GPIO_Init(void)
     GPIO_P3_SetMode(GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2, GPIO_Mode_Output_PP);
 
     // Switch
-    GPIO_P3_SetMode(GPIO_Pin_3, GPIO_Mode_Input_HIP);
+    GPIO_P3_SetMode(GPIO_Pin_3, GPIO_Mode_InOut_QBD);
 
     // Mux Switch Pins
     GPIO_P5_SetMode(GPIO_Pin_4 | GPIO_Pin_5, GPIO_Mode_Output_PP);
@@ -99,19 +111,31 @@ void GPIO_Init(void)
 
 int main(void)
 {
+    // Enable system clock
+    SYS_SetClock();
+
+    // Set debug LED before the system starts
+    P32 = SET;
+
+    // Setup GPIOs
     GPIO_Init();
 
-    // init LEDs and Mux
-    switch_to_next();
+    // Set system clock. Remove this line if system clock is already set by STC-ISP
+    SYS_SetClock();
 
-    // Enable interrupts for Int3
-    EXTI_Int3_SetIntState(HAL_State_ON);
+    // Setup Timer to run every 10ms
+    TIM_Timer0_Config(HAL_State_ON, TIM_TimerMode_16BitAuto, 10000);
 
-    // Enable interrupts globally
+    // Enable Interrupts
+    EXTI_Timer0_SetIntState(HAL_State_ON);
+    EXTI_Timer0_SetIntPriority(EXTI_IntPriority_High);
     EXTI_Global_SetIntState(HAL_State_ON);
 
-    // Turn Debug LED on
-    P32 = SET;
+    // Start Timer
+    TIM_Timer0_SetRunState(HAL_State_ON);
+
+    // Turn off debug LED after system startup
+    P32 = RESET;
 
     while (1)
     {
