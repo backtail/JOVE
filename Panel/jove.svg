@@ -2,7 +2,7 @@
 <svg
    inkscape:export-ydpi="1000"
    inkscape:export-xdpi="1000"
-   inkscape:export-filename="/home/maxgenson/Documents/MMS Synth Project/projects/JOVE/jove fp.png"
+   inkscape:export-filename="/home/maxgenson/Documents/MMS Synth Project/projects/Jupiter/Panel/jove fp silkscreen.png"
    width="30.48mm"
    height="128.5mm"
    viewBox="0 0 30.48 128.5"
@@ -3234,20 +3234,20 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.3655375"
-     inkscape:cx="87.705751"
-     inkscape:cy="49.962409"
+     inkscape:zoom="1.5876556"
+     inkscape:cx="54.797779"
+     inkscape:cy="245.64521"
      inkscape:document-units="mm"
      inkscape:current-layer="layer9"
      inkscape:document-rotation="0"
      showgrid="true"
      inkscape:showpageshadow="false"
      showborder="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1011"
-     inkscape:window-x="0"
-     inkscape:window-y="32"
-     inkscape:window-maximized="1"
+     inkscape:window-width="1904"
+     inkscape:window-height="995"
+     inkscape:window-x="8"
+     inkscape:window-y="40"
+     inkscape:window-maximized="0"
      inkscape:pagecheckerboard="false"
      inkscape:snap-object-midpoints="false"
      inkscape:snap-intersection-paths="true"
@@ -3372,7 +3372,8 @@
      id="layer8"
      inkscape:label="schematic"
      style="display:inline"
-     transform="translate(-18.822418,-0.14249454)">
+     transform="translate(-18.822418,-0.14249454)"
+     sodipodi:insensitive="true">
     <g
        transform="matrix(0.38170145,0,0,-0.38170145,19.179639,119.37133)"
        id="g34-0"
@@ -3547,7 +3548,8 @@
      id="layer9"
      inkscape:label="text"
      style="display:inline"
-     transform="translate(-18.822418,-0.14249454)">
+     transform="translate(-18.822418,-0.14249454)"
+     sodipodi:insensitive="true">
     <text
        y="115.02581"
        x="220.5778"
@@ -3905,7 +3907,7 @@
          sodipodi:role="line"
          id="tspan16452">cv in</tspan></text>
     <path
-       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:0.4,0.2;stroke-dashoffset:0"
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.4, 0.2;stroke-dashoffset:0;stroke-opacity:1"
        d="m 41.682418,13.822494 c 0,-2.116401 0,-4.2330687 0,-6.3499996"
        id="path4596"
        inkscape:path-effect="#path-effect4598"
@@ -3924,7 +3926,8 @@
      id="layer3"
      inkscape:label="components"
      style="display:inline"
-     transform="translate(-18.822418,-0.14249454)">
+     transform="translate(-18.822418,-0.14249454)"
+     sodipodi:insensitive="true">
     <g
        id="g31088"
        transform="translate(1.0424169,40.39888)"
